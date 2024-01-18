@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab1 ECV</title>
     <link rel="stylesheet" href="style.css">
-    <script type= "text/javascript" src="code.js"></script>
+    
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -26,10 +26,14 @@
             <i class='bx bxs-user-circle' style='color:#ffffff'  ></i>
             <p>your username</p>
         </div>
-        <div class="messages-area">
-            <div class="message">
+        <div class="messages-area" id="chat">
+            <div class="message-sent" >
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
+            <div class="message-received" style="display: none;">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            
         </div>
         <div class="typing-area">
             <input type="text" placeholder="Write something...">
@@ -39,3 +43,4 @@
     
 </body>
 </html>
+<script type= "text/javascript" src="code.js"></script>

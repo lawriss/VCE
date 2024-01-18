@@ -41,23 +41,27 @@
 }
 
 .users-area{
+    margin: 20px 0 0 0;
     /*display:flex;*/
     /*width: 20vw;
     height: 100vh;*/
-    background-color: rgba(180, 180, 180, 0.13);
+    background-color: rgba(109, 107, 107, 0.3);
     /*padding:5px;*/
     grid-column: 1/2;
     grid-row: 2/5;
+    border-radius: 10px;
     
 }
 .user-chat{
     background-color: rgb(172, 80, 149);
-    height: 20%;
-    margin: 10px 0 0 0;
+    height: 15%;
+    
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 20% auto;
     align-items: center;
+    border-radius: 10px;
+    margin: 10px;
 }
 .user-chat i{
     font-size: 40px;
@@ -65,6 +69,10 @@
 }
 .user-chat p{
     font-size: 20px;
+}
+.user-chat:hover{
+    background-color: rgb(172, 119, 159);
+    cursor: pointer;
 }
 
 
@@ -107,14 +115,21 @@
     justify-content: right;
 
 }
-.message{
-    background-color: rgb(255, 217, 0);
+.message-sent{
+    background-color: rgb(250, 237, 165);
     border-radius: 15px;
     padding: 5px 20px;
     box-shadow: 0px 0px 20px rgb(255, 217, 0);
-    display: inline-block;
+    /*display: inline-block; */
     
-    
+}
+
+.message-received{
+    background-color: rgb(145, 234, 250);
+    border-radius: 15px;
+    padding: 5px 20px;
+    box-shadow: 0px 0px 20px rgb(0, 217, 255);
+    display: inline-block; 
 }
 
 .typing-area{
@@ -144,17 +159,19 @@
     /*padding: 0px 20px;*/
     background: transparent;
     border: none;
-    width: 90%;
-    
+    width: 95%;
+    font-size: 20px;
+    padding: 0 0 0 20px;
 
 }
 
 .typing-area input::placeholder{
-    color: white;
+    color: rgb(202, 202, 202);
     border: none;
+    font-size: 20px;
+    
     
 }
-
 
 .typing-area button{
     font-size: 30px;
@@ -170,7 +187,10 @@
 }
 
 .typing-area button:hover{
-    color: rgb(248, 0, 116);
+    color: rgb(172, 80, 149);
     /*background-color: white;*/
 }
 
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
