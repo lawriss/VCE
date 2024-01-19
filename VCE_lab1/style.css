@@ -113,16 +113,18 @@
     display: flex;
     align-items: flex-end;
     justify-content: right;
-
+    
+    
 }
 .message-sent{
     background-color: rgb(250, 237, 165);
     border-radius: 15px;
     padding: 5px 20px;
     box-shadow: 0px 0px 20px rgb(255, 217, 0);
-    /*display: inline-block; */
+    
     
 }
+
 
 .message-received{
     background-color: rgb(145, 234, 250);
@@ -194,3 +196,80 @@
 input:focus, textarea:focus, select:focus{
     outline: none;
 }
+
+.intro-container{
+    padding: 30px;
+    min-height: 100vh;
+    background: url(bubble4.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.log-in{
+    border: 1px solid rgba(255, 255, 255, 0.397);
+    box-shadow: 0px 0px 40px rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.705);
+    width: 40vw;
+    height: auto;
+    border-radius: 20px;
+    padding: 20px 80px 20px 20px;
+    
+}
+
+.log-in-info{
+    /*position: relative;*/
+    width: 100%;
+    height: 50px;
+    margin: 30px 30px 70px 30px; 
+}
+
+.log-in-info p{
+    color: #fff;
+    margin: 20px 0;
+    font-size: 20px;
+}
+.log-in-info input{
+    border: 2px solid rgb(134, 134, 134);
+    background: transparent;
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    font-size: 15px;
+    padding: 20px;
+}
+.log-in-info input::placeholder{
+
+    font-size: 15px;
+    color:#aaa;
+}
+.log-in-info input:focus{
+    background-color: rgba(172, 80, 149, 0.404);
+}
+
+.button-go{
+    border-radius: 10px;
+    border: none;
+    color:black;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgb(255, 255, 255);
+    width: 70px;
+    height: 30px;
+    margin: 0 0 30px 30px;
+}
+.button-go:hover{
+    cursor: pointer;
+    background-color:rgb(172, 80, 149);
+    color: #fff;
+}
+.button-go-container{
+    display: flex;
+    justify-content: center;
+}
+
+
+

@@ -11,7 +11,25 @@
 </head>
 
 <body>
-    <div class="main-container">
+    <div class="intro-container">
+        
+        <div class="log-in">
+            <div class="log-in-info">
+                <p>Choose a username *</p>
+                <input type="text" placeholder="Username" required>
+            </div>
+            <div class="log-in-info">
+                <p>Choose a room name *</p>
+                <input type="text" placeholder="Room name" required>
+            </div>
+            <div class="button-go-container">
+                <button class="button-go">Go!</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="main-container" style="display: none;">
         <div class="profile-bar">
             <i class='bx bxs-user-circle' style='color:#ffffff'  ></i>
             <p>your username</p>
@@ -27,12 +45,15 @@
             <p>your username</p>
         </div>
         <div class="messages-area" id="chat">
-            <div class="message-sent" >
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <div class="scroll">
+                <div class="message-sent" >
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="message-received" style="display: none;">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
             </div>
-            <div class="message-received" style="display: none;">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
+            
             
         </div>
         <div class="typing-area">

@@ -1,36 +1,3 @@
-/*console.log("helloooo");
-var myString = "pepe"; //variable
-myString = 'a'
-//let myString2 = "pepe2"; //only in this scope
-const myString2 = 1; //constant
-
-// this is a comment
-for (var i = 0; i < 10; i++) {
-   myString += i;
-}
-
-console.log(2==='2 ');
-
-for (var i = 0; i < 10; i++) {
-    myArray[i] = 0;
- }
-
- var myString = "pepe";
- for (var i in myString) {
-    console.log( myString[i] ); 
- }*/
-
- //example of creating an array
-/*var myFullArray = ["stuff", "in", "array", 473, false, 2385.334];
-
-myFullArray[0] = "pepe"; //setting a value
-var atIndexOne = myFullArray[1]; //getting a value
-var theLength = myFullArray.length; //getting the length
-
-for (var i in myFullArray) { // iteration with for… in
-   console.log(myFullArray[i]);
-   console.log(i);
-}*/
 
 // Hide and show elements by changing its display property:
 /*var elem = document.querySelector(".message-sent");
@@ -45,7 +12,7 @@ elem.style.display = ""; //reapear*/
 ///var cloned = message_sent.cloneNode( true ); //returns a copy of this element
 
 //capture user actions
-var chat = document.querySelector(".messages-area");
+var chat = document.querySelector(".scroll");
 var input = document.querySelector("input");
 input.focus();
 
@@ -55,7 +22,7 @@ function addMessage(str){
    elem.className = "message-sent";
    elem.innerHTML = str;
    chat.appendChild(elem);
-   chat.scrollTop = 1000;
+   chat.scrollTop = 10000;
 }
 
 function onKeyPress(event){
@@ -73,5 +40,54 @@ function send(){
 input.addEventListener("keydown", onKeyPress);
 
 var send_button = document.querySelector(".send-message");
-send_button.addEventListener("click", send)
+send_button.addEventListener("click", send);
 
+function accept(){
+   var cont = document.querySelector(".main-container");
+   cont.style.display = ""; //reapear
+}
+var send_button = document.querySelector(".button-go");
+send_button.addEventListener("click", accept);
+
+
+// We define a protocol
+var msg = {
+	type: "text",
+	content: "hello",
+	username: "Javi"
+};
+
+// Sockets only allow to send strings, 
+// so any object must be converted to string before being sent:
+var msg_str = JSON.stringify( msg );
+
+// And when a message is received from the server, it must be transformed back to object:
+var msg = JSON.parse( msg_str );
+
+//Try to reuse functions, so you do not have to code a different function to show a message from the users than to show a message from another user.
+//Keep the important data stored in some global vars: data like the users, past messages, etc
+//You can use several JS files if you want, or Classes.
+//Do not use the DOM to store your data, use global variables. The DOM is only to show info to the user.
+
+//global container to store important stuff
+var DB = {
+	msgs: []
+};
+
+function onMessage(id,msg){
+	//store message
+	DB.msgs.push( msg );
+	displayMessage( msg );
+}
+
+/////////
+/*
+var server = new SillyClient();
+server.connect( "protocol://host_address:port", "room_name");
+server.on_ready = function( my_id )
+{
+	//you know now which is your id
+}
+*/
+
+var room_name = "MYSUPERAPP_" + room;
