@@ -45,8 +45,9 @@ elem.style.display = ""; //reapear*/
 ///var cloned = message_sent.cloneNode( true ); //returns a copy of this element
 
 //capture user actions
-var chat = document.querySelector("#chat");
+var chat = document.querySelector(".messages-area");
 var input = document.querySelector("input");
+input.focus();
 
 function addMessage(str){
    //create element for the DOM
@@ -54,7 +55,7 @@ function addMessage(str){
    elem.className = "message-sent";
    elem.innerHTML = str;
    chat.appendChild(elem);
-   chat.scrollTop += 1000;
+   chat.scrollTop = 1000;
 }
 
 function onKeyPress(event){
@@ -73,3 +74,4 @@ input.addEventListener("keydown", onKeyPress);
 
 var send_button = document.querySelector(".send-message");
 send_button.addEventListener("click", send)
+
