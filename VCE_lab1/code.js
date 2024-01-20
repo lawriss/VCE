@@ -13,7 +13,7 @@ elem.style.display = ""; //reapear*/
 
 //capture user actions
 var chat = document.querySelector(".scroll");
-var input = document.querySelector("input");
+var input = document.querySelector(".typing-area input");
 input.focus();
 
 function addMessage(str){
@@ -26,7 +26,7 @@ function addMessage(str){
 }
 
 function onKeyPress(event){
-   if(event.code == "Enter"){
+   if(event.code == "Enter" && user_screen.scree_two==true){
       addMessage(input.value);
       input.value = "";
    }
@@ -42,10 +42,35 @@ input.addEventListener("keydown", onKeyPress);
 var send_button = document.querySelector(".send-message");
 send_button.addEventListener("click", send);
 
+
+var user = {
+   username: null,
+   room_name: null
+};
+
+var user_screen = {
+   screen_one: true,
+   scree_two: false
+};
+
 function accept(){
-   var cont = document.querySelector(".main-container");
-   cont.style.display = ""; //reapear
+   user.username = document.querySelector(".log-in-username").value;
+   user.room_name = document.querySelector(".log-in-room").value;
+   console.log(user.username);
+   console.log(user.room_name);
+   //////
+   var intro = document.querySelector(".intro-container");
+   intro.style.display = "none";
+   var main = document.querySelector(".main-container");
+   main.style.display = ""; //reapear
+   /////
+   var aaa = document.querySelector(".profile-bar p");
+   aaa.innerHTML = user.username;
+   ////
+   user_screen.screen_one = false;
+   user_screen.scree_two = true;
 }
+
 var send_button = document.querySelector(".button-go");
 send_button.addEventListener("click", accept);
 
@@ -57,15 +82,19 @@ var msg = {
 	username: "Javi"
 };
 
+
+
+
+
 // Sockets only allow to send strings, 
 // so any object must be converted to string before being sent:
-var msg_str = JSON.stringify( msg );
+//var msg_str = JSON.stringify( msg );
 
 // And when a message is received from the server, it must be transformed back to object:
-var msg = JSON.parse( msg_str );
+//var msg = JSON.parse( msg_str );
 
 //Try to reuse functions, so you do not have to code a different function to show a message from the users than to show a message from another user.
-//Keep the important data stored in some global vars: data like the users, past messages, etc
+//Keep the important data stored in some global vars: data like the users, past messages, etc (!!!!!)
 //You can use several JS files if you want, or Classes.
 //Do not use the DOM to store your data, use global variables. The DOM is only to show info to the user.
 
@@ -90,4 +119,4 @@ server.on_ready = function( my_id )
 }
 */
 
-var room_name = "MYSUPERAPP_" + room;
+/*var room_name = "MYSUPERAPP_" + room;*/
