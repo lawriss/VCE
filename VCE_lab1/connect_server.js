@@ -165,3 +165,16 @@ var MYCHAT = {
  MYCHAT.onNewMessage = function(id, msg){
 	console.log("PLAY SOUND!");
  }
+
+
+ // Hide and show elements by changing its display property:
+/*var elem = document.querySelector(".message-sent");
+elem.style.display = "none"; //disapear
+elem.style.display = ""; //reapear*/
+
+//hide elements from being displayed when the web loads by setting its style in the HTML:
+///////<div id="templates" style="display: none;"></div>
+
+//Clone an element by using the function cloneNode:
+///var message_sent = document.querySelector(".message-sent")
+///var cloned = message_sent.cloneNode( true ); //returns a copy of this element
