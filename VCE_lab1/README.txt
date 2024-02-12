@@ -1,0 +1,6 @@
+- NAME: Laura Ruiz Soler
+- MAIL: laura.ruiz17@estudiant.upf.edu
+- NIA: 240445
+
+- Brew explanation of the code:
+When we load the .html file, we obtain a log-in page where the user must write a username and the name of the room he wants to connect to. When pressing the "Go" button, we go to the "accept" function, where the user info will be loaded in a variable "user" and a server will be created. Also the main chat website will be displayed and we hide de log-in page. The user will connect to the upf server and go the room with the name he had chosen. When this happens, the user will send a "welcome" message: in case there's someone else connected, they will receive this type of message which contains the username of this new connected user and we will add this chat to the list of users connected. In the same way, when a user detects a new connected user, he send his username, adds it to the list of users, and sends a message of history type that contains the array where all messages in the room are contained. When a user receives a message, it is displayed (in blue). The "send" function is in charge of sending and displaying my message (yellow).

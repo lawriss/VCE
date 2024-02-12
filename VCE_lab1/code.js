@@ -1,22 +1,17 @@
+// send my message
 function send(){
    var msg = {
       type: "text",
-      content: input.value, //string var
-      id: user.id, //user var
+      content: input.value, 
+      id: user.id, 
       name: user.username
    };
-   //addMessage(msg);
+ 
    display_my_msg(msg.content);
    msg_history.content.push( msg );
    chat_server.sendMessage(JSON.stringify(msg)); // we convert object to string to send the msg
    input.value = "";
 }
-
-function welcomed(m){
-   chat_server.sendMessage(JSON.stringify(m));
-}
-
-
 
 // display my message
 function display_my_msg(str){
@@ -28,20 +23,17 @@ function display_my_msg(str){
    chat.scrollTop = 10000;
 }
 
-// display sent message, add it to the database and send it to all users
-//function addMessage(msg){
-   //display_my_msg(msg.content);
-   //msg_history.content.push( msg );
-   //chat_server.sendMessage(JSON.stringify(msg));
-//}
+// send message with my username
+function welcomed(m){
+   chat_server.sendMessage(JSON.stringify(m));
+}
 
+// sending text message when pressing "Enter"
 function onKeyPress(event){
-   if(event.code == "Enter" ){ //&& user_screen.scree_two==true
+   if(event.code == "Enter" ){ 
       send();
    }
 }
-
-
 
 // We hide intro-container and display main-container
 function display_chat(){
@@ -62,40 +54,31 @@ function add_new_chat(str){
    array_chats.scrollTop = 10000;
 }
 
+// when we press "Go" button, we go from log-in to the main chat and connect to the server
 function accept()
 {
+   // assign the previously written username and room name
    user.username = document.querySelector(".log-in-username").value;
    user.room_name = document.querySelector(".log-in-room").value;
-   //console.log("username: "+user.username);
-   //console.log("room_name: "+user.room_name);
+   msg_welcome.content = user.username
    display_chat();
 
    // Change username of profile-bar
    var username_profile = document.querySelector(".profile-bar p");
    username_profile.innerHTML = user.username;
 
-   var msg_welcome = {
-      type: "welcome",
-      content: user.username
-   };
    // create server
    chat_server = new SillyClient();
    // assign url and roomname to the server
    chat_server.connect("wss://ecv-etic.upf.edu/node/9000/ws", user.room_name);
+
    // assign id to user
-   chat_server.on_ready = function(my_id)
-   {
+   chat_server.on_ready = function(my_id){
       user.id = my_id;
-      //console.log("You are connected, your id is: " + my_id);
+      console.log("You are connected, your id is: " + my_id);
+      // send your username to the rest of connected users
       chat_server.sendMessage(JSON.stringify(msg_welcome));
    }
-
-   // send a "welcome" message so that all connected users know your username
-   
-
-   //welcomed(msg_welcome);
-   //chat_server.sendMessage(JSON.stringify(msg_welcome));
-
 
    // CALLBACK FUNCTIONS
 
@@ -116,27 +99,21 @@ function accept()
             msg_history.content.push( msg_received.content[i] ); // store data
         }
       }else if (msg_received.type=="welcome"){
-         //add_new_chat(msg_received.name);
-         //console.log('nnnnnnnnn');
-         //console.log(msg_received.content);
          add_new_chat(msg_received.content);
       }
-      
    }
 
    // on_user_connected: to know when new users enter the room
-   chat_server.on_user_connected = function(user_id)
-   {
+   chat_server.on_user_connected = function(user_id){
       // send history msg to the new user 
       chat_server.sendMessage(JSON.stringify(msg_history), user_id);
       // send my username to the new user
-      chat_server.sendMessage(JSON.stringify(msg_welcome), user_id); ///???
+      chat_server.sendMessage(JSON.stringify(msg_welcome), user_id);
    }
 
 }
 
 function load_user_message(message){
-   //console.log(message);
    if (message.type=="text"){
       var elem1 = document.createElement('div');
       elem1.className = 'message-received';
@@ -153,73 +130,37 @@ function load_user_message(message){
    }
    
 }
-// SERVER CALLBACKS
-/*
 
-// on_user_disconnected: to know when users leave the room
-server.on_user_disconnected = function(user_id)
-{
-	// remove user chat to the list of users area
-	var user_discon = document.querySelector("#"+user_id);
-	user_discon.style.display = "none"; //disapear
-
-	// remove historial ...
-}
-*/
-
-/*var user_screen = {
-   screen_one: true,
-   scree_two: false
-};*/
-
-
-// 1. create user and empty dabatase
+// user info
 var user = {
    username: null,
    room_name: null,
    id: null
 };
 
+// loaded history
 var h = false;
 
+// history message
 var msg_history = {
    type: "history",
    content: []
 };
 
-// 2. create server
-//chat_server = new SillyClient();
+// welcome message
+var msg_welcome = {
+   type: "welcome",
+   content: null
+};
 
-// 3. User types username and room_name in log in. Then press "Go" button
+
+///// MAIN
+
+// when we log-in and press Go, we move to the principal chat
 var send_button = document.querySelector(".button-go");
 send_button.addEventListener("click", accept);
 
-/*// 4. assign url and roomname to the server
-chat_server.connect("wss://ecv-etic.upf.edu/node/9000/ws", user.room_name);
-
-// 5. assign id to user
-chat_server.on_ready = function(my_id)
-{
-	user.id = my_id;
-   console.log("You are connected, your id is: " + user_id); 
-}*/
-
-// 6. user sends a message
-
-/* AAAAAAAAAAAAAAAAAAA
-var msg = {
-	type: "text",
-	content: null, //string var
-	id: null, //user var
-   name: null
-};*/
-
-/*var msg_welcome = {
-   type: "welcome",
-   content: null
-};*/
-
-
+// send and type messages
 var input = document.querySelector(".typing-area input");
 input.focus();
 var send_msg = document.querySelector(".send-message");

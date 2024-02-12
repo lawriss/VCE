@@ -2,9 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    /*font: */
 }
-
 
 .main-container{
     padding: 30px;
@@ -13,15 +11,12 @@
     background: url(bubble4.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-
     display: grid;
     grid-template-columns: 25% auto;
     grid-template-rows: 10% 20% auto 10%;
-    
 }
 
 .profile-bar{
-    /*background-color: rgb(90, 90, 90);*/
     background-color: rgba(255, 255, 255, 0.651);
     box-shadow: 0px 0px 10px rgb(255, 255, 255);
     border-radius: 10px;
@@ -42,11 +37,9 @@
 
 .users-area{
     margin: 20px 0 0 0;
-    /*display:flex;*/
     /*width: 20vw;
     height: 100vh;*/
     background-color: rgba(109, 107, 107, 0.3);
-    /*padding:5px;*/
     grid-column: 1/2;
     grid-row: 2/5;
     border-radius: 10px;
@@ -56,10 +49,10 @@
     height: 520px;
 
 }
+
 .user-chat{
     background-color: rgb(172, 80, 149);
     height: 75px;
-    
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 20% auto;
@@ -92,7 +85,6 @@
     grid-template-rows: auto;
     grid-template-columns: 7% auto;
     align-items: center;
-    /*border: 10px 0 0 0 solid red;*/
     margin: 0 0 0 20px;
 }
 .selected-user i{
@@ -105,25 +97,18 @@
     
 }
 
+
 .messages-area{
-    /*height: 65vh;
-    width: 60vw;
-    margin: 40px 20px;*/
     grid-column: 2/3;
     grid-row: 2/4;
     padding: 20px;
-    
 }
-
 .scroll{
     height: 420px;
 	overflow: auto;
     display: flex;
-    /*align-items: flex-end;
-    justify-content: right; */
     flex-direction: column;
 }
-
 .message-sent{
     background-color: rgb(250, 237, 165);
     border-radius: 15px;
@@ -133,8 +118,6 @@
     display: inline-block;
     align-self: flex-end;
 }
-
-
 .message-received{
     background-color: rgb(145, 234, 250);
     border-radius: 15px;
@@ -144,11 +127,9 @@
     align-self: flex-start;
     margin: 4px;
 }
-
 .message-received, .message-sent{
     font-size: 16px;
 }
-
 .message-received .name{
     font-size: 14px;
     font-weight: bold;
@@ -157,16 +138,11 @@
     color:rgb(9, 87, 100);
 }
 
+
 .typing-area{
-    
-    /*display: flex;
-    align-items: center;
-    justify-content: center;*/
-    /*padding: 2px 15px;*/
     backdrop-filter: blur(6px);
     border: 2px solid rgba(255, 255, 255, 0.288);
     border-radius: 15px;
-    /*width: 50vw;*/
     grid-column: 2/3;
     grid-row: 4/5;
     display: flex;
@@ -174,51 +150,35 @@
     justify-content: space-between;
     padding: 2px 20px;
     margin: 0 0 0 20px;
-    
 }
-
 .typing-area input{
-    /*width: 1000px;*/
-    /*height: 50px;*/
     color: white;
-    /*padding: 0px 20px;*/
     background: transparent;
     border: none;
     width: 95%;
     font-size: 20px;
     padding: 0 0 0 20px;
-
 }
-
 .typing-area input::placeholder{
     color: rgb(202, 202, 202);
     border: none;
-    font-size: 20px;
-    
-    
+    font-size: 20px; 
 }
-
 .typing-area button{
     font-size: 30px;
     background-color: rgba(1,1,1,0);
-    /*box-shadow: 0px 3px 6px rgb(0, 0, 0);*/
     border: none;
     color: white;
-    /*padding: 12px 16px; 
-    cursor: pointer;
-    margin: 10px;*/
     cursor: pointer;
     padding: 5px;
 }
-
 .typing-area button:hover{
     color: rgb(172, 80, 149);
-    /*background-color: white;*/
 }
-
 input:focus, textarea:focus, select:focus{
     outline: none;
 }
+
 
 .intro-container{
     padding: 30px;
@@ -229,9 +189,7 @@ input:focus, textarea:focus, select:focus{
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
-
 .log-in{
     border: 1px solid rgba(255, 255, 255, 0.397);
     box-shadow: 0px 0px 40px rgb(255, 255, 255);
@@ -240,11 +198,8 @@ input:focus, textarea:focus, select:focus{
     height: auto;
     border-radius: 20px;
     padding: 20px 80px 20px 20px;
-    
 }
-
 .log-in-info{
-    /*position: relative;*/
     width: 100%;
     height: 50px;
     margin: 30px 30px 70px 30px; 
@@ -255,6 +210,7 @@ input:focus, textarea:focus, select:focus{
     margin: 20px 0;
     font-size: 20px;
 }
+
 .log-in-info input{
     border: 2px solid rgb(134, 134, 134);
     background: transparent;
@@ -266,7 +222,6 @@ input:focus, textarea:focus, select:focus{
     padding: 20px;
 }
 .log-in-info input::placeholder{
-
     font-size: 15px;
     color:#aaa;
 }
@@ -293,6 +248,3 @@ input:focus, textarea:focus, select:focus{
     display: flex;
     justify-content: center;
 }
-
-
-
