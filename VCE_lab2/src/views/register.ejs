@@ -1,0 +1,121 @@
+<head>
+    <title>Register</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            /*font: */
+        }
+        .intro-container{
+            padding: 30px;
+            min-height: 100vh;
+            background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(59,9,121,1) 35%, rgba(170,111,169,1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .log-in{
+            border: 1px solid rgba(255, 255, 255, 0.397);
+            box-shadow: 0px 0px 40px rgb(255, 255, 255);
+            background-color: rgba(0, 0, 0, 0.705);
+            width: 40vw;
+            height: auto;
+            border-radius: 20px;
+            padding: 20px 80px 20px 20px;
+            
+        }
+
+        .log-in-info{
+            /*position: relative;*/
+            width: 100%;
+            height: 50px;
+            margin: 30px 30px 70px 30px; 
+        }
+
+        .log-in-info p{
+            color: #fff;
+            margin: 20px 0;
+            font-size: 20px;
+        }
+        .log-in-info input{
+            border: 2px solid rgb(134, 134, 134);
+            background: transparent;
+            border-radius: 10px;
+            width: 100%;
+            height: 40px;
+            color: #fff;
+            font-size: 15px;
+            padding: 20px;
+        }
+        .log-in-info input::placeholder{
+
+            font-size: 15px;
+            color:#aaa;
+        }
+        .log-in-info input:focus{
+            background-color: rgba(172, 80, 149, 0.404);
+        }
+
+        .button-go{
+            border-radius: 10px;
+            border: none;
+            color:black;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgb(255, 255, 255);
+            width: 100px;
+            height: 30px;
+            margin: 10px 0 30px 30px;
+        }
+        .button-go:hover{
+            cursor: pointer;
+            background-color:rgb(172, 80, 149);
+            color: #fff;
+        }
+        .button-go-container{
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        .have-account{
+            margin: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            color: rgb(208, 135, 222);
+        }
+        .have-account a{
+            color:rgb(179, 80, 255);
+        }
+
+        .have-account a:hover{
+            color:white;
+        }
+            
+
+    </style>
+</head>
+
+
+
+<form action="/" method="POST" class="intro-container">
+        
+    <div class="log-in">
+        <div class="log-in-info">
+            <p>Username</p>
+            <input id ="username" name="username" class="log-in-username" type="text" placeholder="Username" required>
+        </div>
+        <div class="log-in-info">
+            <p>Password</p>
+            <input id="password" name="password" class="log-in-room" type="password" placeholder="Password" required>
+        </div>
+        <p class="have-account">Already have an account? <a href="/login">Login</a></p>
+        <div class="button-go-container">
+            <button type="submit" class="button-go">Register</button>
+        </div>
+        
+    </div>
+</form>
+
+
